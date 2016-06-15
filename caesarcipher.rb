@@ -1,4 +1,4 @@
-
+#!/usr/bin/ruby
 def cypher(message_to_encrypt, shift_factor)
 	return "Invalid arguments" unless message.is_a?(String) && shift.is_a?(Integer)
 

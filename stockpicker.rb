@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 def stock_picker(stocksArray)
 	#find the buy and sell days that will maximize your profit. 
 	#Need to buy before you can sell

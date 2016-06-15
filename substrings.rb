@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 def substrings(theWord, dictionary)
 	#this shows how many times the word and any substrings appear in the StringsArray
 	return "Please enter a valid array" unless dictionary.is_a? Array 

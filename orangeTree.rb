@@ -1,4 +1,4 @@
-
+#!/usr/bin/ruby
 class OrangeTree
 
 	def initialize
