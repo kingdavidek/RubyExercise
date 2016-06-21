@@ -12,7 +12,6 @@ def bubble_sort_by(array)
 				swapped = true
 			end
 		end
-
 	end
 	puts array.to_s
 end
