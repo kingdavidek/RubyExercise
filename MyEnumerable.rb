@@ -80,10 +80,31 @@ module Enumerable
 		end
 		return count
 	end
+
+	def my_map(*p)
+		container = []
+		if block_given?
+			self.my_each { |i| container << yield(i) }
+			return container.to_a
+		elsif p[0].is_a? Proc
+			self.my_each { |i| container << p[0].call(i) }
+			return container.to_a.to_s
+		end
+	end
+
+	def my_inject(*p)
+		if block_given?
+			aggr = p[0]
+			self.my_each do |i| 
+				aggr = yield(aggr, i) 
+			end
+			return aggr
+		end
+	end
 end
 
 
-array = [1, 1, 3, 3, 3, 1, 4, 2, 1]
+array = [1, 1, 3, 3, 3, 1, 9, 8, 51]
 #array.my_each_with_index {|el, index| puts el.to_s + ' ' + index.to_s}
 
 #if array.my_none { |el|  el > 2 }
@@ -94,5 +115,19 @@ array = [1, 1, 3, 3, 3, 1, 4, 2, 1]
 
 #counts the number of elements
 
-puts array.my_count {|el| el < 4}
-puts array.my_count
+array.my_count {|el| el < 4}
+red = Proc.new {|el| el*4}
+x = array.my_map(red)
+puts x
+
+puts array.my_inject(0) {|total, el| total + el}
+
+arrayz = [1, 2, 3, 4, 5, 6].my_inject([]) do |result, element|
+  result << element.to_s if element % 2 == 0
+  result
+end
+
+
+def multiply_els(arr)
+	arr.my_inject(1) {|result, el| result*el}
+end
