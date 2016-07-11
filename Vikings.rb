@@ -70,7 +70,7 @@ class Viking < Warrior
 	def die
 		puts "#{self.name} has been killed :( "
 			@dead = true
-	endLeif.
+	end
 end
 
 
