@@ -75,10 +75,10 @@ class TicTacToe
 		end
 
 		case
-		when @board[(0..2) || (3..5) || (6..8)].all? {|el| el == 'X'}
+		when @board[0..2].all? {|el| el == 'X'} || @board[3..5].all? {|el| el == 'X'} || @board[6..8].all? {|el| el == 'X'}
 		#horizontal victory
 			x_win.call
-		when @board[(0..2) || (3..5) || (6..8)].all? {|el| el == 'O'}
+		when @board[0..2].all? {|el| el == 'O'} || @board[3..5].all? {|el| el == 'O'} || @board[6..8].all? {|el| el == 'O'}
 			o_win.call
 		when (@board[0] == @board[3]) && (@board[3] == @board[6]) && @board[3] == 'X'
 		#vertical victory
